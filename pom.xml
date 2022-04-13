@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>pat.practicas</groupId>
 	<artifactId>pract7</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<name>pract7</name>
 	<description>Practica 7 PAT</description>
 	<properties>
