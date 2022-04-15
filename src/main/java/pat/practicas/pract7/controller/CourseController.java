@@ -29,11 +29,19 @@ public class CourseController {
         return ResponseEntity.ok().body(courses);
     }
 
-    @PostMapping("/courses")
+    @PostMapping("/add_course")
     public @ResponseBody ResponseEntity<String> addCourse(@RequestBody CourseDTO course){
         courseService.addCourse(course);
         
         return ResponseEntity.ok().body("Curso incluido"); 
         
     }
+
+    @PostMapping("/delete_course")
+    public @ResponseBody ResponseEntity<String> deleteCourse(@RequestBody String name){
+        courseService.deleteCourse(name);
+        
+        return ResponseEntity.ok().body("Curso eliminado"); 
+        
+    } 
 }

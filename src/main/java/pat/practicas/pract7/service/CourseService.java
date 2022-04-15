@@ -12,4 +12,6 @@ public interface CourseService {
     List<CourseDTO> getCourses();
 
     void addCourse(CourseDTO course);
+
+    void deleteCourse(String name);
 }

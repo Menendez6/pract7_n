@@ -39,5 +39,11 @@ public class CourseServiceImpl implements CourseService {
 		jdbcTemplate.execute("INSERT INTO COURSES (COURSE_NAME,SEMESTER,DEGREE) VALUES ('"+name+"',"+semester+",'"+degree+"');");
         
     }
+
+    @Override
+    public void deleteCourse(String name) {
+        jdbcTemplate.execute("DELETE FROM COURSES WHERE COURSE_NAME='"+name+"'");
+        
+    }
     
 }

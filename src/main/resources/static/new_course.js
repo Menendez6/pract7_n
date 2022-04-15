@@ -62,7 +62,7 @@ degree.addEventListener("input", function (event) {
 });
 
 async function mandarInfo(){
-    let request = await fetch("api/courses",{
+    let request = await fetch("api/add_course",{
         method: "POST",
         credentials: "same-origin",
         headers: {

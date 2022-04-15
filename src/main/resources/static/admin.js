@@ -20,9 +20,16 @@ async function mostrarCourses(){
                 
                 for(let i = 0;i<data.length;i++){
                     
-                    text = document.createTextNode("Sign up");
+                    text = document.createTextNode("Delete");
                     var btn = document.createElement("BUTTON");
                     btn.appendChild(text);
+
+                    btn.addEventListener("click", function (event) {
+                        // stop form submission
+                        deleteCourse(data[i].courseName);
+                        //window.location.href = "./burger.html";
+                        
+                    })
 
                     img = document.createElement('img');
                     img.style.height = '50%';
@@ -62,3 +69,20 @@ async function mostrarCourses(){
 
 
 document.addEventListener('DOMContentLoaded',mostrarCourses())
+
+async function deleteCourse(name){
+    let request = await fetch("api/delete_course",{
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: name,
+        datatype: "json",
+    }).catch(console.error);
+
+    if (request.ok){
+        //window.location.href = "./admin.html";
+        console.log(await request.json());
+    }
+}

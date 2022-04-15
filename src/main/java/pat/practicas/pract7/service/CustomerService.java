@@ -14,6 +14,8 @@ public interface CustomerService {
 
     void addCustomer(CustomerDTO customer);
 
+    //void deleteCustomer(String name);
+
 
     //All Customers with Orders
     //List<CustomerDTO> getCustomersWithOrders();
