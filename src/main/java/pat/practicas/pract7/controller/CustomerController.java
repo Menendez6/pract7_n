@@ -15,7 +15,7 @@ import pat.practicas.pract7.service.CustomerService;
 import pat.practicas.pract7.service.dto.CustomerDTO;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class CustomerController {
 
     @Autowired

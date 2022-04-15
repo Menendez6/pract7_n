@@ -10,4 +10,6 @@ import pat.practicas.pract7.service.dto.CourseDTO;
 public interface CourseService {
     
     List<CourseDTO> getCourses();
+
+    void addCourse(CourseDTO course);
 }
