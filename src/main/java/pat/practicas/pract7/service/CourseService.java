@@ -11,7 +11,11 @@ public interface CourseService {
     
     List<CourseDTO> getCourses();
 
+    CourseDTO getCourseById(Long Id);
+
     void addCourse(CourseDTO course);
 
     void deleteCourse(String name);
+
+    void updateCourse(CourseDTO course);
 }

@@ -1,6 +1,7 @@
 const table = document.getElementById("tabla");
 var img = document.createElement('img');
-var text;
+var text_del;
+var text_up;
 
 
 async function mostrarCourses(){
@@ -20,14 +21,23 @@ async function mostrarCourses(){
                 
                 for(let i = 0;i<data.length;i++){
                     
-                    text = document.createTextNode("Delete");
-                    var btn = document.createElement("BUTTON");
-                    btn.appendChild(text);
+                    text_del = document.createTextNode("Delete");
+                    text_up = document.createTextNode("Update");
+                    var btn_del = document.createElement("BUTTON");
+                    var btn_up = document.createElement("BUTTON");
+                    btn_del.appendChild(text_del);
+                    btn_up.appendChild(text_up);
 
-                    btn.addEventListener("click", function (event) {
+                    btn_del.addEventListener("click", function (event) {
                         // stop form submission
                         deleteCourse(data[i].courseName);
                         //window.location.href = "./burger.html";
+                        
+                    })
+
+                    btn_up.addEventListener("click", function (event) {
+                        sessionStorage.setItem("courseId", data[i].id);
+                        window.location.href = "./up_course.html";
                         
                     })
 
@@ -58,8 +68,8 @@ async function mostrarCourses(){
                     cell2.innerHTML = data[i].courseName;
                     cell3.innerHTML = data[i].semester;
                     cell4.innerHTML = data[i].degree;
-                    cell5.appendChild(btn);
-                    cell5.appendChild(btn);
+                    cell5.appendChild(btn_del);
+                    cell5.appendChild(btn_up);
 
                 }
 
@@ -82,7 +92,7 @@ async function deleteCourse(name){
     }).catch(console.error);
 
     if (request.ok){
-        //window.location.href = "./admin.html";
+        window.location.href = "./admin.html";
         console.log(await request.json());
     }
 }
