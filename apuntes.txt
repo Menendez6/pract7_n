@@ -1,7 +1,0 @@
-Basicamente lo que me queda para el Pablo del futuro:
-    * Ordenar por semestres
-    * Crear la página de admin desde la que pueda borrar, añadir y actualizar cursos (y eliminar usuarios)
-    * Crear la página de mis cursos en la que accedo a los cursos a los que me he inscrito
-    * Si estoy inscrito a un curso que no me aparezca en la lista
-    * Crear tabla intermedia para unir usuarios y cursos (al eliminar un curso se borra de la tabla igual que un usuario (en cascade))
-    * Meter un botón que me muestre los cursos por alumno y los alumnos por curso (con joins)
