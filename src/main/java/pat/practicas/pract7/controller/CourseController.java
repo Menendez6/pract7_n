@@ -18,6 +18,7 @@ import pat.practicas.pract7.model.CourseTable;
 import pat.practicas.pract7.repository.CoursesRepository;
 import pat.practicas.pract7.service.CourseService;
 import pat.practicas.pract7.service.dto.CourseDTO;
+import pat.practicas.pract7.service.dto.CoursesJoinDTO;
 
 @RestController
 @RequestMapping("/api")
@@ -65,5 +66,13 @@ public class CourseController {
         var course = courseService.getCourseById(id);
 
         return ResponseEntity.ok().body(course);
+    }
+
+    @GetMapping("courses/all")
+    public ResponseEntity<List<CoursesJoinDTO>> getAllCourses(){
+
+        var courses = courseService.getAllCourses();
+
+        return ResponseEntity.ok().body(courses);
     }
 }

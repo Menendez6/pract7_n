@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin</title>
+        <title>Courses</title>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
                 <!-- Font Awesome -->
@@ -14,7 +14,6 @@
          Material Design Bootstrap -->
         <style>
             .principal{
-                margin-top: 2%;
                 margin-left: 5%;
                 margin-right: 5%;
             }
@@ -30,28 +29,15 @@
     <body>
       <div class="principal">
         <!--Tabla en la que mostraremos los cursos-->
-        <div class="col text-center">
-            <a href="new_course.html">
-                <button type="button" class="btn btn-outline-primary">Add new course</button>
-            </a>
-            <a href="students.html">
-                <button type="button" class="btn btn-outline-primary">Students</button>
-            </a>
-            <a href="new_course.html">
-                <button type="button" class="btn btn-outline-primary">Courses</button>
-            </a>
-            <br>
-            <br>
-        </div>  
         <div class="container">
             <table class="table table-dark table-striped border border-3 res text-center" id="tabla">
               <thead>
                   <tr>
-                      <th>University</th>
+                      <th>Student</th>
+                      <th>Email</th>
                       <th>Course</th>
                       <th>Semester</th>
                       <th>Degree</th>
-                      <th>Sign Up</th>
                   </tr>
               </thead>
               <tbody id="data" style="border-collapse: collapse;">
@@ -61,6 +47,6 @@
         </div>
       </div>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-          <script src="admin.js" ></script>
+          <script src="students.js" ></script>
     </body>
 </html>

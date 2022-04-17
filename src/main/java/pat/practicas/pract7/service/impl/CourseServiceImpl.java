@@ -12,6 +12,7 @@ import pat.practicas.pract7.model.CourseTable;
 import pat.practicas.pract7.repository.CoursesRepository;
 import pat.practicas.pract7.service.CourseService;
 import pat.practicas.pract7.service.dto.CourseDTO;
+import pat.practicas.pract7.service.dto.CoursesJoinDTO;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -66,6 +67,23 @@ public class CourseServiceImpl implements CourseService {
 
         return course;
 
+    }
+
+    @Override
+    public List<CoursesJoinDTO> getAllCourses() {
+        String query = 
+        """
+        SELECT CUSTOMERS.CUSTOMER_NAME, CUSTOMERS.CUSTOMER_EMAIL, COURSES.COURSE_NAME, COURSES.SEMESTER, COURSES.DEGREE
+        FROM COURSCUST
+        INNER JOIN CUSTOMERS ON (COURSCUST.CUSTOMER_ID = CUSTOMERS.ID)
+        INNER JOIN COURSES ON (COURSCUST.COURSE_ID = COURSES.ID)
+        """;
+
+        List<CoursesJoinDTO> joinList = jdbcTemplate.query(
+            query,
+            (rs,rowNum) ->
+                    new CoursesJoinDTO(rs.getString("CUSTOMER_NAME"), rs.getString("CUSTOMER_EMAIL"), rs.getString("COURSE_NAME"), rs.getInt("SEMESTER"), rs.getString("DEGREE")));
+        return joinList;
     }
 
 

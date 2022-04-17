@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import pat.practicas.pract7.service.dto.CourseDTO;
+import pat.practicas.pract7.service.dto.CoursesJoinDTO;
 
 @Service
 public interface CourseService {
     
     List<CourseDTO> getCourses();
+
+    List<CoursesJoinDTO> getAllCourses();
 
     CourseDTO getCourseById(Long Id);
 
