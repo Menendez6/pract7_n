@@ -75,4 +75,12 @@ public class CourseController {
 
         return ResponseEntity.ok().body(courses);
     }
+
+    @GetMapping("courses/all2")
+    public ResponseEntity<List<CoursesJoinDTO>> getAllCourses2(){
+
+        var courses = courseService.getAllCourses2();
+
+        return ResponseEntity.ok().body(courses);
+    }
 }

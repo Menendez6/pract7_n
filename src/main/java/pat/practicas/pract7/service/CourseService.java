@@ -14,6 +14,8 @@ public interface CourseService {
 
     List<CoursesJoinDTO> getAllCourses();
 
+    List<CoursesJoinDTO> getAllCourses2();
+
     CourseDTO getCourseById(Long Id);
 
     void addCourse(CourseDTO course);

@@ -18,7 +18,7 @@ async function validateForm(){
 
             for(let i=0;i<data.length;i++){
                 if (data[i].customerName == user.value && data[i].customerPassword == pass.value){
-                    window.location.href = "./burger.html?user="+data[i].id;
+                    window.location.href = "./courses.html?user="+data[i].id;
                     break
                 }
             }

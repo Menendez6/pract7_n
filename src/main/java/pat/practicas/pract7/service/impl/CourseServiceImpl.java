@@ -75,7 +75,7 @@ public class CourseServiceImpl implements CourseService {
         """
         SELECT CUSTOMERS.CUSTOMER_NAME, CUSTOMERS.CUSTOMER_EMAIL, COURSES.COURSE_NAME, COURSES.SEMESTER, COURSES.DEGREE
         FROM COURSCUST
-        INNER JOIN CUSTOMERS ON (COURSCUST.CUSTOMER_ID = CUSTOMERS.ID)
+        LEFT JOIN CUSTOMERS ON (COURSCUST.CUSTOMER_ID = CUSTOMERS.ID)
         INNER JOIN COURSES ON (COURSCUST.COURSE_ID = COURSES.ID)
         """;
 
@@ -84,6 +84,24 @@ public class CourseServiceImpl implements CourseService {
             (rs,rowNum) ->
                     new CoursesJoinDTO(rs.getString("CUSTOMER_NAME"), rs.getString("CUSTOMER_EMAIL"), rs.getString("COURSE_NAME"), rs.getInt("SEMESTER"), rs.getString("DEGREE")));
         return joinList;
+    }
+
+    @Override
+    public List<CoursesJoinDTO> getAllCourses2() {
+        String query = 
+        """
+        SELECT CUSTOMERS.CUSTOMER_NAME, CUSTOMERS.CUSTOMER_EMAIL, COURSES.COURSE_NAME, COURSES.SEMESTER, COURSES.DEGREE
+        FROM COURSCUST
+        INNER JOIN CUSTOMERS ON (COURSCUST.CUSTOMER_ID = CUSTOMERS.ID)
+        RIGHT JOIN COURSES ON (COURSCUST.COURSE_ID = COURSES.ID)
+        """;
+
+        List<CoursesJoinDTO> joinList = jdbcTemplate.query(
+            query,
+            (rs,rowNum) ->
+                    new CoursesJoinDTO(rs.getString("CUSTOMER_NAME"), rs.getString("CUSTOMER_EMAIL"), rs.getString("COURSE_NAME"), rs.getInt("SEMESTER"), rs.getString("DEGREE")));
+        return joinList;
+        
     }
 
 
